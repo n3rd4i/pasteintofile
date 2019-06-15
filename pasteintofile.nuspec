@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>pasteintofile</id>
+    <version>1.4.0</version>
+    <packageSourceUrl>https://github.com/n3rd4i/pasteintofile.git</packageSourceUrl>
+    <owners>n3rd4i</owners>
+    <title>pasteintofile (Install)</title>
+    <authors>Eslam Hamouda</authors>
+    <projectUrl>https://github.com/EslaMx7/PasteIntoFile</projectUrl>
+    <iconUrl>https://cdn.statically.io/gh/EslaMx7/PasteIntoFile/ac8c9fbe/PasteIntoFile/icon.png</iconUrl>
+    <!-- <copyright>Year Software Vendor</copyright> -->
+    <!-- <licenseUrl>Software License Location __REMOVE_OR_FILL_OUT__</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>-->
+    <projectSourceUrl>https://github.com/EslaMx7/PasteIntoFile</projectSourceUrl>
+    <docsUrl>https://github.com/EslaMx7/PasteIntoFile/blob/master/README.md</docsUrl>
+    <!--<mailingListUrl></mailingListUrl>-->
+    <bugTrackerUrl>https://github.com/EslaMx7/PasteIntoFile/issues</bugTrackerUrl>
+    <tags>pasteintofile clipboard paste</tags>
+    <summary>Desktop Application to Paste Clipboard Contents into Files</summary>
+    <description>
+
+* Supports Any type of Text, Source Code , Images.
+* Change the current saving location or type it yourself.
+* Shortcut in Context Menu (Right Click) to Unregister the application and remove the Context Menu Shortcut from your system run the command line as Administrator and run the application with this argument : /unreg
+* to manually Register it use this argument : /reg
+
+    </description>
+    <dependencies>
+      <dependency id="autohotkey.portable" />
+    </dependencies>
+    <releaseNotes>https://github.com/EslaMx7/PasteIntoFile/releases</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
