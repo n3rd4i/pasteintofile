@@ -1,5 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+. "$toolsDir\helper.ps1"
+
 $url        = 'https://github.com/EslaMx7/PasteIntoFile/releases/download/v1.4/PasteIntoFile.zip'
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
@@ -11,5 +13,11 @@ $packageArgs = @{
 }
 Install-ChocolateyZipPackage @packageArgs
 
+# silent install requires AutoHotKey
+$ahkProc = Start-Ahk('captureWindow.ahk')
+
 & "$toolsDir\PasteIntoFile.exe" /reg
-& autohotkey.exe "$toolsDir\captureWindow.ahk"
+# minimum delay to ensure the autohotkey takes efect
+& Start-Sleep 1
+
+if (Get-Process -id $ahkProc.Id -ErrorAction SilentlyContinue) {Stop-Process -id $ahkProc.Id}

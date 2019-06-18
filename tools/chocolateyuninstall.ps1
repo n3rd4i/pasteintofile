@@ -1,7 +1,10 @@
 ﻿$ErrorActionPreference = 'Stop';
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
+. "$toolsDir\helper.ps1"
+
 & "$toolsDir\PasteIntoFile.exe" /unreg
-& autohotkey.exe "$toolsDir\captureWindow.ahk"
+# silent uninstall requires AutoHotKey
+$ahkProc = Start-Ahk('captureWindow.ahk')
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
@@ -27,3 +30,5 @@ if ($key.Count -eq 1) {
   Write-Warning "Please alert package maintainer the following keys were matched:"
   $key | % {Write-Warning "- $($_.DisplayName)"}
 }
+
+if (Get-Process -id $ahkProc.Id -ErrorAction SilentlyContinue) {Stop-Process -id $ahkProc.Id}
