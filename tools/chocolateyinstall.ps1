@@ -2,13 +2,12 @@
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 . "$toolsDir\helper.ps1"
 
-$url        = 'https://github.com/EslaMx7/PasteIntoFile/releases/download/v1.4/PasteIntoFile.zip'
+$url        = 'https://github.com/EslaMx7/PasteIntoFile/releases/download/v1.5/PasteIntoFile.zip'
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
   url           = $url
-  softwareName  = 'pasteintofile*'
-  checksum      = '7A39640CBA56030816BF3A62E612755A8DB166BFA52383E00042B741D060F499'
+  checksum      = '76D94F5A930CA70198723FC66E639618840347F4FB1DFD9972637EDBC42AE867'
   checksumType  = 'sha256'
 }
 Install-ChocolateyZipPackage @packageArgs
